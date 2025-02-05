@@ -1,39 +1,52 @@
-from flask import Flask, render_template, session, redirect
-from functools import wraps
-import pymongo
-import os
-from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
+from bs4 import BeautifulSoup
+import json
 
-app = Flask(__name__)
-app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
+# Read the HTML file
+with open("Amazon.eg.html", "r", encoding="utf-8") as file:
+    soup = BeautifulSoup(file, "html.parser")
 
-# Database
-remote_mongo_uri = os.getenv('MONGO_URI', 'mongodb+srv://mohamedsamir170569:Kw9pAkJNqCzTZdF@cluster0.ua2dr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-client = pymongo.MongoClient(remote_mongo_uri)
-db = client.website
+# Find all product divs
+product_divs = soup.find_all("div", class_="sg-col-4-of-24 sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20")
 
-# Decorators
-def login_required(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            return redirect('/')
-    return wrap
+products = []
+for div in product_divs:
+    # Extract product image URL
+    try:
+        img_tag = div.find("img", class_="s-image")
+        link = img_tag["src"] if img_tag else ""
+    except:
+        link = ""
+    
+    # Extract product title
+    try:
+        title_span = div.find("h2").find("span")
+        title = title_span.text.strip() if title_span else ""
+    except:
+        title = ""
+    
+    # Extract product rating
+    try:
+        rating_span = div.find("span", class_="a-icon-alt")
+        rating = rating_span.text.strip() if rating_span else ""
+    except:
+        rating = ""
+    
+    # Extract product price
+    try:
+        price_span = div.find("span", class_="a-price-whole")
+        price = price_span.text.strip() if price_span else ""
+    except:
+        price = ""
+    
+    products.append({
+        "link": link,
+        "title": title,
+        "rating": rating,
+        "price": price
+    })
 
-# Routes
-from user import routes
+# Write data to JSON file
+with open("data.json", "w", encoding="utf-8") as json_file:
+    json.dump(products, json_file, indent=4, ensure_ascii=False)
 
-@app.route('/')
-def home():
-    return "Welcome to home page"
-
-@app.route('/dashboard/')
-@login_required
-def dashboard():
-    return "Welcome to dashboard"
-
-if __name__ == '__main__':
-    app.run(debug=True)
+print("Data extracted and saved to data.json")

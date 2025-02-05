@@ -1,0 +1,19 @@
+use python,
+read Amazon.eg.html file and parse it beatufilsoap
+
+find all div with class="sg-col-4-of-24 sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20"
+
+for each div from above list,
+try fing img with class="s-image" then link=img.src
+except link=''
+
+try find span for product title in h2 tag <span>Apple iPhone 14, 128GB, Midnight - Unlocked </span> then title=span.text
+except title=''
+
+try find span with class="a-icon-alt" then rating=span.text
+except rating=''
+
+try find span with class="a-pricef-whole" then price=span.text
+except price=''
+
+open data.json and write link, title, rating, and price.
