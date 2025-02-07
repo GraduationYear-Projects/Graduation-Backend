@@ -6,10 +6,8 @@ import os
 
 class Product:
     
-    def insert_products_from_json(self, json_folder_path='product/json'):
-        """
-        Insert products from JSON files in the specified folder into MongoDB
-        """
+    def insert_products_from_json(self, json_folder_path='data'):
+        # Insert products from JSON files in the specified folder into MongoDB
         try:
             # Get all JSON files from the folder
             json_files = [f for f in os.listdir(json_folder_path) if f.endswith('.json')]
@@ -38,9 +36,32 @@ class Product:
             return jsonify({'error': str(e)}), 500
     
     def get_products(self):
-        """
-        Get all products from the database
-        """
-        products = db.products.find({})
-        return list(products)
+        # Get all products from the database
+        category = request.args.get("category")
+        query = {"category": category} if category else {}
+        products = list(db.products.find(query))
+        return jsonify(products)
     
+    def get_product_id(self, product_id):
+        product = db.products.find_one({"_id": product_id})
+        if product:
+            product["_id"] = str(product["_id"])
+            return jsonify(product)
+        return jsonify({"error": "Product not found"}), 404
+    
+    def search_products(self):
+        query = request.args.get("q", "")  # Get the search query from URL parameter
+        if not query:
+            return jsonify({"error": "No search query provided"}), 400
+
+        # Perform a case-insensitive search on the product name
+        results = list(db.products.find(
+            {"title": {"$regex": query, "$options": "i"}},
+            {"_id": 1, "title": 1, "price": 1, "link": 1, "category": 1}  # Include relevant fields
+        ))
+
+        # Convert ObjectId to string for JSON serialization
+        for product in results:
+            product["_id"] = str(product["_id"])
+
+        return jsonify(results)

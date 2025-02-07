@@ -48,3 +48,14 @@ class User:
       return self.start_session(user)
     
     return jsonify({ "error": "Invalid login credentials" }), 401
+  
+  def get_users(self):
+        users = list(db.users.find())
+        return jsonify(users)
+
+  def get_user_id(self, user_id):
+        user = db.users.find_one({"_id": user_id})
+        if user:
+            user["_id"] = str(user["_id"])
+            return jsonify(user), 200
+        return jsonify({"error": "User not found"}), 404
