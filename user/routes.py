@@ -1,16 +1,16 @@
-from flask import Flask
-from app import app
+from flask import Blueprint
 from user.models import User
 
+user_bp = Blueprint('user', __name__)
 
-@app.route('/signup/', methods=['POST'])
+@user_bp.route('/signup/', methods=['POST'])
 def signup():
-  return User().signup()
+    return User().signup()
 
-@app.route('/signout/')
+@user_bp.route('/signout/')
 def signout():
-  return User().signout()
+    return User().signout()
 
-@app.route('/login/', methods=['POST'])
+@user_bp.route('/login/', methods=['POST'])
 def login():
-  return User().login()
+    return User().login()

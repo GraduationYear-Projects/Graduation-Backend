@@ -2,9 +2,11 @@ from flask import Flask, render_template, session, redirect
 from functools import wraps
 from pymongo import MongoClient
 
+# Create Flask app
 app = Flask(__name__)
 app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 
+# Setup MongoDB
 client = MongoClient("mongodb://localhost:27017/")
 db = client["Cluster1"]
 
@@ -19,8 +21,6 @@ def login_required(f):
     return wrap
 
 # Routes
-from user import routes
-
 @app.route('/')
 def home():
     return "Welcome to home page"
@@ -29,6 +29,13 @@ def home():
 @login_required
 def dashboard():
     return "Welcome to dashboard"
+
+# Register blueprints
+from user.routes import user_bp
+from product.routes import product_bp
+
+app.register_blueprint(user_bp)
+app.register_blueprint(product_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
