@@ -19,3 +19,13 @@ def get_product_id(product_id):
 def search_products():
     return Product().search_products()
 
+@product_bp.route("/api/products/reviews/", methods=["POST"])
+def add_review():
+    return Product().add_review()
+
+@product_bp.route("/api/products/reviews/<product_id>/", methods=["GET"])
+def get_reviews(product_id):
+    return Product().get_reviews(product_id)
+
+
+

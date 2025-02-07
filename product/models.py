@@ -3,6 +3,7 @@ from app import db
 import uuid
 import json
 import os
+from datetime import datetime
 
 class Product:
     
@@ -65,3 +66,28 @@ class Product:
             product["_id"] = str(product["_id"])
 
         return jsonify(results)
+
+    
+    def add_review(self):
+        data = request.json
+        if not all(key in data for key in ("product_id", "user_id", "rating", "comment")):
+            return jsonify({"error": "Missing required fields"}), 400
+
+        review = {
+            "product_id": data["product_id"],
+            "user_id": data["user_id"],
+            "rating": data["rating"],
+            "comment": data["comment"],
+            "timestamp": datetime.utcnow(),
+            "sentiment": ""
+        }
+
+        db.reviews.insert_one(review)
+        return jsonify({"message": "Review added successfully"}), 200
+    
+    def get_reviews(self, product_id):
+        reviews = list(db.reviews.find(
+            {"product_id": product_id},
+            {"_id": 0}  # Exclude MongoDB's _id field
+        ))
+        return jsonify(reviews)
