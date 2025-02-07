@@ -1,17 +1,12 @@
 from flask import Flask, render_template, session, redirect
 from functools import wraps
-import pymongo
-import os
-from dotenv import load_dotenv
-load_dotenv()  # Load environment variables from .env file
+from pymongo import MongoClient
 
 app = Flask(__name__)
 app.secret_key = b'\xcc^\x91\xea\x17-\xd0W\x03\xa7\xf8J0\xac8\xc5'
 
-# Database
-remote_mongo_uri = os.getenv('MONGO_URI', 'mongodb+srv://mohamedsamir170569:Kw9pAkJNqCzTZdF@cluster0.ua2dr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-client = pymongo.MongoClient(remote_mongo_uri)
-db = client.website
+client = MongoClient("mongodb://localhost:27017/")
+db = client["Cluster1"]
 
 # Decorators
 def login_required(f):
