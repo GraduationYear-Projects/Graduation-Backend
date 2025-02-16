@@ -2,5 +2,8 @@
 __pycache__/
 env/
 *.pyc
-u-model.py
-u-rotes.py
+config.json
+model.safetensors
+special_tokens_map.json
+tokenizer_config.json
+vocab.txt
