@@ -3,7 +3,9 @@ from app import db
 import uuid
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
+import requests
+import logging
 
 class Product:
     
@@ -68,22 +70,35 @@ class Product:
         return jsonify(results)
 
     
+    def analyze_sentiment(self, text):
+        SENTIMENT_MODEL_URL = "http://localhost:5002/analyze_sentiment"
+
+        """Send review text to the sentiment model and return prediction."""
+        response = requests.post(SENTIMENT_MODEL_URL, json={"text": text})
+        
+        if response.status_code == 200:
+            return response.json().get("sentiment", "Neutral")  # Default to Neutral if error
+        return "Neutral"
+    
     def add_review(self):
         data = request.json
         if not all(key in data for key in ("product_id", "user_id", "rating", "comment")):
             return jsonify({"error": "Missing required fields"}), 400
 
+        sentiment = self.analyze_sentiment(data["comment"])
+
         review = {
+            "_id": uuid.uuid4().hex,
             "product_id": data["product_id"],
             "user_id": data["user_id"],
             "rating": data["rating"],
             "comment": data["comment"],
-            "timestamp": datetime.utcnow(),
-            "sentiment": ""
+            "sentiment": sentiment,
+            "timestamp": datetime.now(timezone.utc)
         }
 
         db.reviews.insert_one(review)
-        return jsonify({"message": "Review added successfully"}), 200
+        return jsonify({"message": "Review added with sentiment analysis", "sentiment": sentiment}), 200
     
     def get_reviews(self, product_id):
         reviews = list(db.reviews.find(
