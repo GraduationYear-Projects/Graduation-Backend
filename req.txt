@@ -1,0 +1,8 @@
+flask
+pymongo
+passlib
+bs4
+transformers
+safetensors
+torch
+requests

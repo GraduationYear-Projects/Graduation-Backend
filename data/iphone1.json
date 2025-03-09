@@ -2,169 +2,127 @@
     {
         "link": "./iphone1_files/61veAtnXzWL._AC_UL320_.jpg",
         "title": "Apple iPhone 16 Pro Max (256 GB) - Black Titanium",
-        "category": "Iphone",
+        "category": "iPhone",
         "rating": "4.9 out of 5 stars",
-        "price": "79,900."
+        "price": "76,550."
     },
     {
-        "link": "./iphone1_files/61bMJdgeryL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 Pro Max (256 GB) - Desert Titanium",
-        "category": "Iphone",
-        "rating": "4.3 out of 5 stars",
-        "price": "79,900."
-    },
-    {
-        "link": "./iphone1_files/71PScsfMkRL._AC_UL320_.jpg",
-        "title": "Apple iPhone 15 (128 GB) - Pink",
-        "category": "Iphone",
+        "link": "./iphone1_files/61-251PVEZL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 (128 GB) - Black",
+        "category": "iPhone",
         "rating": "4.4 out of 5 stars",
-        "price": "47,950."
-    },
-    {
-        "link": "./iphone1_files/51yG1FjZVYL._AC_UL320_.jpg",
-        "title": "New Apple iPhone 13 (128 GB) - Green",
-        "category": "Iphone",
-        "rating": "4.3 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/71CSc3M2AGL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 (128 GB) - Teal",
-        "category": "Iphone",
-        "rating": "5.0 out of 5 stars",
-        "price": "52,999."
+        "price": "53,450."
     },
     {
         "link": "./iphone1_files/713SsA7gftL._AC_UL320_.jpg",
         "title": "Apple iPhone 16 (128 GB) - Ultramarine",
-        "category": "Iphone",
+        "category": "iPhone",
         "rating": "5.0 out of 5 stars",
-        "price": "53,949."
+        "price": "51,888."
     },
     {
-        "link": "./iphone1_files/61nEkHocR8L._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 Pro Max (256 GB) - White Titanium",
-        "category": "Iphone",
-        "rating": "4.3 out of 5 stars",
-        "price": "77,550."
-    },
-    {
-        "link": "./iphone1_files/61VuVU94RnL._AC_UL320_.jpg",
-        "title": "Apple iPhone 13 (128GB) - Midnight",
-        "category": "Iphone",
-        "rating": "4.0 out of 5 stars",
-        "price": ""
+        "link": "./iphone1_files/619izXQuEjL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 Pro (128 GB) - White Titanium",
+        "category": "iPhone",
+        "rating": "5.0 out of 5 stars",
+        "price": "68,950."
     },
     {
         "link": "./iphone1_files/61lLjrvDEkL._AC_UL320_.jpg",
         "title": "Apple iPhone 16 (128 GB) - White",
-        "category": "Iphone",
+        "category": "iPhone",
         "rating": "5.0 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/61DjMd76QnL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 (128 GB) - Pink",
-        "category": "Iphone",
-        "rating": "5.0 out of 5 stars",
-        "price": "53,999."
-    },
-    {
-        "link": "./iphone1_files/51LqthmgJoL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 Pro Max (256 GB) - Natural Titanium",
-        "category": "Iphone",
-        "rating": "4.5 out of 5 stars",
-        "price": "77,750."
-    },
-    {
-        "link": "./iphone1_files/712i-Bxl8qL._AC_UL320_.jpg",
-        "title": "Apple iPhone 15 (128 GB) - Green",
-        "category": "Iphone",
-        "rating": "4.5 out of 5 stars",
-        "price": ""
+        "price": "53,450."
     },
     {
         "link": "./iphone1_files/61qQCRAQ3sL._AC_UL320_.jpg",
         "title": "Apple iPhone 15 (128 GB) - Black",
-        "category": "Iphone",
-        "rating": "4.7 out of 5 stars",
+        "category": "iPhone",
+        "rating": "4.6 out of 5 stars",
+        "price": ""
+    },
+    {
+        "link": "./iphone1_files/712i-Bxl8qL._AC_UL320_.jpg",
+        "title": "Apple iPhone 15 (128 GB) - Green",
+        "category": "iPhone",
+        "rating": "4.6 out of 5 stars",
+        "price": ""
+    },
+    {
+        "link": "./iphone1_files/61bMJdgeryL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 Pro Max (512 GB) - Desert Titanium",
+        "category": "iPhone",
+        "rating": "4.5 out of 5 stars",
+        "price": "95,950."
+    },
+    {
+        "link": "./iphone1_files/71CSc3M2AGL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 (128 GB) - Teal",
+        "category": "iPhone",
+        "rating": "5.0 out of 5 stars",
+        "price": ""
+    },
+    {
+        "link": "./iphone1_files/51yG1FjZVYL._AC_UL320_.jpg",
+        "title": "New Apple iPhone 13 (128 GB) - Green",
+        "category": "iPhone",
+        "rating": "4.3 out of 5 stars",
+        "price": ""
+    },
+    {
+        "link": "./iphone1_files/61lLjrvDEkL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 (128GB) - White",
+        "category": "iPhone",
+        "rating": "4.4 out of 5 stars",
+        "price": "53,450."
+    },
+    {
+        "link": "./iphone1_files/51yG1FjZVYL._AC_UL320_.jpg",
+        "title": "Apple iPhone 13 (128 GB) - Green",
+        "category": "iPhone",
+        "rating": "4.5 out of 5 stars",
+        "price": ""
+    },
+    {
+        "link": "./iphone1_files/61VuVU94RnL._AC_UL320_.jpg",
+        "title": "Apple iPhone 13 with FaceTime - 128GB, 4GB RAM, 4G LTE, Midnight black, Single SIM & E-SIM - International Warranty",
+        "category": "iPhone",
+        "rating": "3.8 out of 5 stars",
         "price": ""
     },
     {
         "link": "./iphone1_files/61uczyTwwgL._AC_UL320_.jpg",
         "title": "Apple iPhone 16 Pro (256 GB) - Black Titanium",
-        "category": "Iphone",
-        "rating": "3.5 out of 5 stars",
-        "price": "74,000."
-    },
-    {
-        "link": "./iphone1_files/71k38LlSqML._AC_UL320_.jpg",
-        "title": "Apple iPhone 15 (128 GB) - Blue",
-        "category": "Iphone",
+        "category": "iPhone",
         "rating": "4.3 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/615O-NFQKdL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 (128GB) - Black",
-        "category": "Iphone",
-        "rating": "4.4 out of 5 stars",
-        "price": "87,598."
-    },
-    {
-        "link": "./iphone1_files/61VuVU94RnL._AC_UL320_.jpg",
-        "title": "Apple iPhone 13 with FaceTime - 128GB, 4GB RAM, 4G LTE, Midnight black, Single SIM & E-SIM - International Warranty",
-        "category": "Iphone",
-        "rating": "3.5 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/61-251PVEZL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 (128 GB) - Black",
-        "category": "Iphone",
-        "rating": "4.3 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/617ZhMUCvIL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 Pro (256 GB) - Desert Titanium",
-        "category": "Iphone",
-        "rating": "4.2 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/71xb2xkN5qL._AC_UL320_.jpg",
-        "title": "Apple iPhone 13 with FaceTime (128GB) - Blue",
-        "category": "Iphone",
-        "rating": "4.5 out of 5 stars",
-        "price": ""
-    },
-    {
-        "link": "./iphone1_files/61RCRdEvQlL._AC_UL320_.jpg",
-        "title": "Apple iPhone 13 with FaceTime - 128GB, 4GB RAM, 4G LTE, Sierra Blue, Single SIM & E-SIM - International Warranty",
-        "category": "Iphone",
-        "rating": "4.4 out of 5 stars",
         "price": ""
     },
     {
         "link": "./iphone1_files/61bK6PMOC3L._AC_UL320_.jpg",
         "title": "New Apple iPhone 14 (128 GB) - Blue",
-        "category": "Iphone",
+        "category": "iPhone",
         "rating": "4.6 out of 5 stars",
         "price": ""
     },
     {
-        "link": "./iphone1_files/619izXQuEjL._AC_UL320_.jpg",
-        "title": "Apple iPhone 16 Pro (128 GB) - White Titanium",
-        "category": "Iphone",
-        "rating": "5.0 out of 5 stars",
+        "link": "./iphone1_files/51FQoP3cCGL._AC_UL320_.jpg",
+        "title": "Apple iPhone 14 (128 GB) - Starlight, Bluetooth, Wi-Fi, USB",
+        "category": "iPhone",
+        "rating": "4.5 out of 5 stars",
         "price": ""
     },
     {
-        "link": "./iphone1_files/51aDq9is2iL._AC_UL320_.jpg",
-        "title": "New Apple iPhone 14 (128 GB) - Blue",
-        "category": "Iphone",
-        "rating": "4.6 out of 5 stars",
-        "price": ""
+        "link": "./iphone1_files/71fVoqRC0wL._AC_UL320_.jpg",
+        "title": "Apple iPhone 12 128GB 4 GB RAM, Black",
+        "category": "iPhone",
+        "rating": "4.4 out of 5 stars",
+        "price": "32,950."
+    },
+    {
+        "link": "./iphone1_files/617ZhMUCvIL._AC_UL320_.jpg",
+        "title": "Apple iPhone 16 Pro (128 GB) - Desert Titanium",
+        "category": "iPhone",
+        "rating": "3.8 out of 5 stars",
+        "price": "68,950."
     }
 ]
