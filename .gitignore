@@ -7,3 +7,9 @@ model.safetensors
 special_tokens_map.json
 tokenizer_config.json
 vocab.txt
+sentiment_lstm_glove_model.h5
+sentiment_model.pkl
+tokenizer.pkl
+gru_tokenizer.json
+gru.h5
+

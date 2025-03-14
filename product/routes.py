@@ -27,5 +27,13 @@ def add_review():
 def get_reviews(product_id):
     return Product().get_reviews(product_id)
 
+@product_bp.route("/api/products/reviews/summary/<product_id>/", methods=["GET"])
+def get_reviews_summary(product_id):
+    return Product().get_reviews_summary(product_id)
+
+@product_bp.route("/api/products/reviews/summary/update/<product_id>/", methods=["POST"])
+def update_reviews_summary(product_id):
+    return Product().update_reviews_summary(product_id)
+
 
 

@@ -71,7 +71,7 @@ class Product:
 
     
     def analyze_sentiment(self, text):
-        SENTIMENT_MODEL_URL = "http://localhost:5002/analyze_sentiment"
+        SENTIMENT_MODEL_URL = "http://localhost:5003/analyze_sentiment"
 
         """Send review text to the sentiment model and return prediction."""
         response = requests.post(SENTIMENT_MODEL_URL, json={"text": text})
@@ -106,3 +106,41 @@ class Product:
             {"_id": 0}  # Exclude MongoDB's _id field
         ))
         return jsonify(reviews)
+        
+    def get_reviews_summary(self, product_id):
+        """Get the summary of reviews for a specific product."""
+        try:
+            # Call the summarization service
+            SUMMARY_SERVICE_URL = "http://localhost:5004/get_summary"
+            print(f"Calling summarization service at {SUMMARY_SERVICE_URL} for product {product_id}")
+            
+            response = requests.get(SUMMARY_SERVICE_URL, params={"product_id": product_id}, timeout=10)
+            print(f"Response status: {response.status_code}")
+            print(f"Response content: {response.text}")
+            
+            if response.status_code == 200:
+                return jsonify(response.json())
+            elif response.status_code == 404:
+                return jsonify({"message": "No summary found for this product. Try updating the summary first."}), 404
+            else:
+                return jsonify({"error": f"Error from summary service: {response.json().get('error')}"}), response.status_code
+                
+        except Exception as e:
+            logging.error(f"Error getting review summary: {str(e)}")
+            return jsonify({"error": str(e)}), 500
+    
+    def update_reviews_summary(self, product_id):
+        """Update the summary of reviews for a specific product."""
+        try:
+            # Call the summarization service to update the summary
+            SUMMARY_UPDATE_URL = "http://localhost:5004/update_summary"
+            response = requests.post(SUMMARY_UPDATE_URL, json={"product_id": product_id})
+            
+            if response.status_code == 200:
+                return jsonify(response.json())
+            else:
+                return jsonify({"error": f"Error from summary service: {response.json().get('error')}"}), response.status_code
+                
+        except Exception as e:
+            logging.error(f"Error updating review summary: {str(e)}")
+            return jsonify({"error": str(e)}), 500
