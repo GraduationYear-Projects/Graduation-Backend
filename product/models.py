@@ -132,7 +132,25 @@ class Product:
             print(f"Response content: {response.text}")
             
             if response.status_code == 200:
-                return jsonify(response.json())
+                response_data = response.json()
+                
+                # Handle the new response format
+                if "text_summary" in response_data:
+                    # New format from summarization2.py
+                    return jsonify({
+                        "product_id": product_id,
+                        "summary": response_data["text_summary"],
+                        "features": response_data.get("features", {}),
+                        "total_reviews": response_data.get("total_reviews", 0),
+                        "last_updated": response_data.get("last_updated", None)
+                    })
+                elif "summary" in response_data:
+                    # Original format from summarization.py
+                    return jsonify(response_data)
+                else:
+                    # Unknown format
+                    return jsonify({"error": "Unknown summary format"}), 500
+                    
             elif response.status_code == 404:
                 return jsonify({"message": "No summary found for this product. Try updating the summary first."}), 404
             else:
@@ -150,7 +168,22 @@ class Product:
             response = requests.post(SUMMARY_UPDATE_URL, json={"product_id": product_id})
             
             if response.status_code == 200:
-                return jsonify(response.json())
+                response_data = response.json()
+                
+                # Handle the new response format
+                if "summary" in response_data and isinstance(response_data["summary"], dict) and "text_summary" in response_data["summary"]:
+                    # New format from summarization2.py
+                    summary_data = response_data["summary"]
+                    return jsonify({
+                        "product_id": product_id,
+                        "summary": summary_data["text_summary"],
+                        "features": summary_data.get("features", {}),
+                        "total_reviews": summary_data.get("total_reviews", 0),
+                        "last_updated": summary_data.get("last_updated", None)
+                    })
+                else:
+                    # Original format or unknown format
+                    return jsonify(response_data)
             else:
                 return jsonify({"error": f"Error from summary service: {response.json().get('error')}"}), response.status_code
                 
