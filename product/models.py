@@ -48,7 +48,20 @@ class Product:
     def get_product_id(self, product_id):
         product = db.products.find_one({"_id": product_id})
         if product:
+            # Ensure _id is a string
             product["_id"] = str(product["_id"])
+            
+            # Debug log
+            print(f"Product found: {product_id}")
+            print(f"Product data: {product}")
+            
+            # Ensure link field exists
+            if "link" not in product or not product["link"]:
+                print(f"Warning: Product {product_id} has no image link")
+                # Set a default image URL that's stored locally in the frontend
+                # The frontend will handle this by using its local placeholder
+                product["link"] = ""
+            
             return jsonify(product)
         return jsonify({"error": "Product not found"}), 404
     
